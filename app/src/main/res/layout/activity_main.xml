@@ -15,4 +15,17 @@
             android:layout_height="wrap_content" android:id="@+id/name_text"
             android:textAlignment="center"
             style="@style/NameStyle"/>
+    <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" app:srcCompat="@android:drawable/btn_star_big_on"
+            android:id="@+id/star_image" android:contentDescription="@string/yellow_star"/>
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <TextView
+                android:text="@string/bio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/textView2" style="@style/NameStyle"
+                android:paddingStart="@dimen/layout_padding" android:paddingEnd="@dimen/layout_padding"/>
+    </ScrollView>
 </LinearLayout>
