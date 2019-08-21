@@ -17,6 +17,7 @@ import com.android.example.aboutme.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private val myName: MyName = MyName("Aleks Haecky")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
@@ -27,7 +28,10 @@ class MainActivity : AppCompatActivity() {
             nicknameText.setOnClickListener {
                 updateNickname(it)
             }
+            this.myName= this@MainActivity.myName
         }
+
+
     }
     @SuppressLint("ServiceCast")
     private fun updateNickname (view: View) {
@@ -42,10 +46,11 @@ class MainActivity : AppCompatActivity() {
     }
     private fun addNickname(view: View) {
         binding.apply {
-            nicknameEdit.text = nicknameEdit.text
+            myName?.nickname = nicknameEdit.text.toString()
            nicknameEdit.visibility = View.GONE
             nicknameText.visibility = View.VISIBLE
             doneButton.visibility = View.GONE
+            invalidateAll()
             val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
         }
